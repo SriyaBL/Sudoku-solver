@@ -1,7 +1,9 @@
 //solve function using backtracking algorithm
 export function solve(matrix) {
 
-    return f(0, 0, matrix);
+    let ans = f(0, 0, matrix);
+
+    return ans;
 
 }
 
