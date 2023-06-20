@@ -25,18 +25,17 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.solve-button,
-.clear-button {
+button {
   padding: 10px 20px;
   background-color: #4caf50;
   color: #ffffff;
   border: none;
   cursor: pointer;
   margin-right: 5px;
+  border-radius: 4px;
 }
 
-.solve-button:hover,
-.clear-button {
+.solve-button:hover {
   background-color: #45a049;
 }
 
@@ -44,3 +43,22 @@
   background: #d3d3d3;
 }
 
+.button-container {
+  display: flex;
+  max-width: 500px;
+}
+
+.copy-solution-button {
+  margin-left: auto;
+  background-color: #4681f4;
+}
+
+.copy-solution-button:hover {
+  background-color: rgb(43, 43, 208);
+}
+
+.clear-button {
+  background-color: #fff;
+  border: 1px solid #4caf50;
+  color:  #4caf50;
+}

@@ -3,6 +3,7 @@ import { solve } from './algorithm.js';
 
 //generate the sudoku grid dynamically
 const sudokuGrid = document.querySelector('.sudoku-grid');
+let solution;
 
 for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
@@ -63,6 +64,7 @@ function solveSudoku() {
 
     solve(matrix);
 
+    setSolution(matrix);
 
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
@@ -80,4 +82,29 @@ function clearSudoku() {
     cells.forEach(cell => {
         cell.value = '';
     });
+    solution = [];
 }
+
+function setSolution(matrix) {
+    solution = matrix;
+}
+
+// Assuming you have a button with id "copy-solution-btn"
+const copySolutionButton = document.querySelector('.copy-solution-button');
+
+copySolutionButton.addEventListener('click', function () {
+    const solvedGrid = solution; // Retrieve the solved grid from your app's data/state
+
+    if (solution.length != 0) {
+        // Copy the solved grid to the clipboard
+        navigator.clipboard.writeText(solvedGrid)
+            .then(function () {
+                // Success message or any other action you want to perform after successful copying
+                alert('Sudoku solution copied to clipboard');
+            })
+            .catch(function (error) {
+                // Error handling if copying to clipboard fails
+                alert(`Failed to copy Sudoku solution to clipboard ${error}`);
+            });
+    }
+});
